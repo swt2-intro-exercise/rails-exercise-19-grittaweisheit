@@ -1,1 +1,22 @@
-<!--here could be stuff, i guess-->
+<h1>Create a new author</h1>
+
+<%= form_with scope: :author, local: true do |form| %>
+  <p>
+    <%= form.label :first_name_input %><br>
+    <%= form.text_field :first_name_input %>
+  </p>
+
+  <p>
+    <%= form.label :last_name_input %><br>
+    <%= form.text_field :last_name_input %>
+  </p>
+
+  <p>
+    <%= form.label :homepage_input %><br>
+    <%= form.text_field :homepage_input %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
