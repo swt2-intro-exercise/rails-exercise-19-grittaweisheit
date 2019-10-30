@@ -1,22 +1,14 @@
-<h1>Create a new author</h1>
+<p>
+  <strong>First Name</strong>
+  <%= @author.first_name %>
+</p>
 
-<%= form_with scope: :author, url:authors_path, local: true do |form| %>
-  <p>
-    <%= form.label :first_name %><br>
-    <%= form.text_field :first_name %>
-  </p>
+<p>
+  <strong>Last Name</strong>
+  <%= @author.last_name %>
+</p>
 
-  <p>
-    <%= form.label :last_name %><br>
-    <%= form.text_field :last_name %>
-  </p>
-
-  <p>
-    <%= form.label :homepage %><br>
-    <%= form.text_field :homepage %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<p>
+  <strong>Homepage</strong>
+  <%= @author.homepage %>
+</p>
