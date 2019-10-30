@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   # new author route
-  get 'new_author' => 'home#new_author'
+  get 'author/new' => 'home#new_author'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
