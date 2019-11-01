@@ -89,7 +89,7 @@ RSpec.describe PapersController, type: :controller do
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
         post :create, params: {paper: invalid_attributes}, session: valid_session
-        expect(response).to_not be_successful
+        expect(response).to be_successful
       end
     end
   end
@@ -117,7 +117,7 @@ RSpec.describe PapersController, type: :controller do
       it "returns a success response (i.e. to display the 'edit' template)" do
         paper = Paper.create! valid_attributes
         put :update, params: {id: paper.to_param, paper: invalid_attributes}, session: valid_session
-        expect(response).to_not be_successful
+        expect(response).to be_successful
       end
     end
   end
