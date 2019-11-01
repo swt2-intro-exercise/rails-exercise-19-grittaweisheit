@@ -18,6 +18,6 @@ describe "New author page", type: :feature do
     fill_in "author[first_name]", :with => "Nobody"
     fill_in "author[homepage]", :with => "www.example.de"
     click_button "Save Author"
-    expect(page).to have_content("You should give a last name!")
+    expect(page).to have_content("Last name can't be blank")
   end
 end
