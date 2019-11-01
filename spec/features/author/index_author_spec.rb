@@ -16,4 +16,11 @@ describe "index listing all authors" do
     expect(page).to have_link 'New', href: new_author_path
   end
 
+  it "should have links to details an editing every author" do
+    @alan = FactoryBot.create :author
+    visit authors_path
+    expect(page).to have_link 'Show', href: author_path(@alan)
+    expect(page).to have_link 'Edit', href: edit_author_path(@alan)
+  end
+
 end
