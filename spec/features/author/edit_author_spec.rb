@@ -12,7 +12,7 @@ describe "edit author page" do
   it "should update the authors info" do
     visit edit_author_path(@alan)
     fill_in "author[homepage]", :with => "www.alanturing.com"
-    click_button "Save Author"
+    click_button "Update Author"
     @alan.reload
     expect(@alan.homepage).to eq("www.alanturing.com")
   end
