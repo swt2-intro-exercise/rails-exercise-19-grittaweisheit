@@ -29,11 +29,11 @@ RSpec.describe PapersController, type: :controller do
   # Paper. As you add validations to Paper, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {title: 'Superduper Paper', venue: 'conference', year: 2018}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {title: 'Superduper Paper', venue: 'conference', year: 'invalid_year'}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -42,7 +42,7 @@ RSpec.describe PapersController, type: :controller do
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    it "returns a success response" do
+    it "returns a list of all papers" do
       Paper.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
@@ -89,7 +89,7 @@ RSpec.describe PapersController, type: :controller do
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
         post :create, params: {paper: invalid_attributes}, session: valid_session
-        expect(response).to be_successful
+        expect(response).to_not be_successful
       end
     end
   end
@@ -97,14 +97,13 @@ RSpec.describe PapersController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {title: 'Newer Paper', venue: 'conference', year: 2019}
       }
 
       it "updates the requested paper" do
         paper = Paper.create! valid_attributes
         put :update, params: {id: paper.to_param, paper: new_attributes}, session: valid_session
         paper.reload
-        skip("Add assertions for updated state")
       end
 
       it "redirects to the paper" do
@@ -118,7 +117,7 @@ RSpec.describe PapersController, type: :controller do
       it "returns a success response (i.e. to display the 'edit' template)" do
         paper = Paper.create! valid_attributes
         put :update, params: {id: paper.to_param, paper: invalid_attributes}, session: valid_session
-        expect(response).to be_successful
+        expect(response).to_not be_successful
       end
     end
   end
