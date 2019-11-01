@@ -9,8 +9,9 @@ RSpec.describe "author", type: :model do
     expect(author.homepage).to eq('http://wikipedia.org/Alan_Turing')
     expect(author.name).to eq('Alan Turing')
   end
+
   it "should have a last name" do
-    author = FactoryBot.create :author_without_last_name
+    author = Author.new(first_name:'Nobody', last_name:'', homepage:'http://wikipedia.org/Nobody')
     expect(author).to_not be_valid
   end
 end
