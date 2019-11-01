@@ -17,7 +17,9 @@
 
 <p>
   <strong>Authors:</strong>
-  <%= @paper.authors %>
+  <% @paper.authors.each do |author| %>
+    <li>author.name</li>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_paper_path(@paper) %> |
