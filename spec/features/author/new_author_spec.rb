@@ -12,4 +12,12 @@ describe "New author page", type: :feature do
     expect(page).to have_field('author[last_name]')
     expect(page).to have_field('author[homepage]')
   end
+
+  it "should display error message when no last name is given" do
+    visit new_author_path
+    fill_in "author[first_name]", :with => "Nobody"
+    fill_in "author[homepage]", :with => "www.example.de"
+    click_button "Save Author"
+    expect(page).to have_content("You should give a last name!")
+  end
 end
