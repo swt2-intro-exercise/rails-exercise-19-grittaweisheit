@@ -29,7 +29,7 @@ describe "index listing all authors" do
     @alan = FactoryBot.create :author
     visit authors_path
     @count = Author.count
-    find(:xpath, "//tr[" + (@alan.id).to_s + "]/td[5]/a").click
+    find(:xpath, "//tr[" + (@alan.id+1).to_s + "]/td[5]/a").click
     expect(Author.count).to eq(@count-1)
   end
 
